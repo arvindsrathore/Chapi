@@ -13,3 +13,10 @@ let corsOptions = {
 // app.use(cors(corsOptions));
 app.use(cors());
 app.use(morgan("dev"));
+app.use(express.json());
+
+import {router as userRouter} from './routes/userRouter.js';
+import {router as financeRouter} from './routes/financeRouter.js'
+
+app.use('/api/users',userRouter);
+app.use('/api/finance',financeRouter);
